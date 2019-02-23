@@ -56,6 +56,7 @@ export default class HomePage extends Component {
 
     }
 
+    //sets user to the middle of the board
     setUser = () => {
         const {boardNumber} = this.state;
 
@@ -71,9 +72,12 @@ export default class HomePage extends Component {
         })
     }
 
+    //generates Random number with range
     getRandomArbitrary = (min, max) => {
         return Math.random() * (max - min) + min;
     }
+
+    //populating board with green sprinters based on user's input
 
     populateGreenColors = () => {
         const {boardNumber, userPosition, boardIds} = this.state;
@@ -115,26 +119,18 @@ export default class HomePage extends Component {
 
     }
 
-    /*printInput = (e) => {
-        const {userInput} = this.state;
-
-        console.log("input", userInput.toString())
-        document.getElementById(userInput.toString()).style.backgroundColor = "#000"
-        this.setState({openModal: false})
-    }*/
+    //navigating the user on the board using arrow keys
     moveUser = (e) => {
         const { visible, userPosition, playersIndex, boardNumber} = this.state;
         let this_ = this;
         let count = 0
 
+        //event listeniner for any key press
             document.addEventListener('keydown', (event)=> {
-                /*console.log("here2", event.key)*/
-                /*if(!visible) {
-                    document.getElementById("user").style.display = "none"
-                    let newIndex;
-                    */
-                    let newIndex;
+                let newIndex;
                     if (!visible) {
+
+                        //logic when left arrow is clicked
                         if (event && event.key === "ArrowLeft") {
 
                             let str = userPosition.toString().charAt(0);
@@ -157,11 +153,11 @@ export default class HomePage extends Component {
                         }
                         else if (event && event.key === "ArrowRight") {
 
-                            let str1 = userPosition.toString().charAt(userPosition.length - 1);
+                            /*let str1 = userPosition.toString().charAt(userPosition.length - 1);
                             let str2 = userPosition.toString().charAt(userPosition.length - 2);
 
                             let lastIndex = boardNumber;
-                            /*if (Number(userPosition) > lastIndex) {*/
+                            /!*if (Number(userPosition) > lastIndex) {*!/*/
                                 newIndex = Number(userPosition) + 1;
 
                                 document.getElementById(userPosition).innerHTML= `<div class="box d-flex" ></div>`;

@@ -50,8 +50,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/HomePage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="166" column="32" selection-start-line="166" selection-start-column="32" selection-end-line="166" selection-end-column="32" />
+            <state relative-caret-position="289">
+              <caret line="162" column="48" lean-forward="true" selection-start-line="162" selection-start-column="48" selection-end-line="162" selection-end-column="48" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -204,16 +204,15 @@
       <workItem from="1550904148444" duration="2031000" />
       <workItem from="1550906706224" duration="1000" />
       <workItem from="1550906759579" duration="40518000" />
-      <workItem from="1550958558097" duration="4116000" />
+      <workItem from="1550958558097" duration="4358000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46666000" />
+    <option name="totallyTimeSpent" value="46908000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2247191" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -289,8 +288,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/HomePage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="166" column="32" selection-start-line="166" selection-start-column="32" selection-end-line="166" selection-end-column="32" />
+        <state relative-caret-position="289">
+          <caret line="162" column="48" lean-forward="true" selection-start-line="162" selection-start-column="48" selection-end-line="162" selection-end-column="48" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
