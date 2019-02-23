@@ -32,4 +32,18 @@
 .height-50{
     height: 50px
 }
+.user-div{
+    width: 65%;
+    height: 65%;
+    margin: auto;
+    background: red;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.d-flex{
+    display: flex;
+}
 
