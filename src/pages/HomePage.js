@@ -11,7 +11,8 @@ export default class HomePage extends Component {
             visible: true,
             boardNumber: 0,
             board:[],
-            currentPosition: "11"
+            userPosition: "11",
+            playersIndex: []
         }
     }
 
@@ -52,7 +53,39 @@ export default class HomePage extends Component {
 
 
         document.getElementById(middlerow.toString()+middlerow.toString()).innerHTML = `<div class="box d-flex"><div class="user-div">U</div></div>`
-        this.setState({currentPosition: middlerow.toString()+middlerow.toString()})
+        this.setState({userPosition: middlerow.toString()+middlerow.toString()}, () => {
+            this.populateGreenColors()
+        })
+    }
+
+    getRandomArbitrary = (min, max) => {
+        return Math.random() * (max - min) + min;
+    }
+
+    populateGreenColors = () => {
+        const {boardNumber, userPosition} = this.state;
+
+        let ranArray = [];
+        for(let i = 0; i < boardNumber; i++){
+           let boxPosition = this.getRandomArbitrary((((i+1)*10)+1), (((i+1)*10)+boardNumber))
+
+           boxPosition = Math.floor(boxPosition)
+
+            while (boxPosition === Number(userPosition)){
+                boxPosition = this.getRandomArbitrary((((i+1)*10)+1), (((i+1)*10)+boardNumber))
+                boxPosition = Math.floor(boxPosition)
+            }
+
+            ranArray.push(boxPosition.toFixed(0))
+        }
+        for(let ids in ranArray){
+            document.getElementById(ranArray[ids]).innerHTML = `<div class="box d-flex"><div class="player-div"></div></div>`
+
+        }
+
+        this.setState({playersIndex: ranArray})
+
+        console.log("position", ranArray)
     }
 
     /*printInput = (e) => {
@@ -62,11 +95,14 @@ export default class HomePage extends Component {
         document.getElementById(userInput.toString()).style.backgroundColor = "#000"
         this.setState({openModal: false})
     }*/
+    moveUser = (e) => {
+        console.log("key", e.keyCode)
+    }
 
     render() {
         const {visible, board} = this.state;
         return (
-            <div className="z-flex-div">
+            <div className="z-flex-div" onKeyPress={e => {this.moveUser(e)}} >
                 <Modal
                     title="Welcome to hackerbay games"
                     visible={this.state.visible}
