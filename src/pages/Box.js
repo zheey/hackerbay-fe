@@ -12,6 +12,12 @@ export default class Box extends Component {
             board: []
         }
     }
+    moveUser = (e) => {
+        document.addEventListener('keyup', function (event) {
+            console.log("key", e.keyCode)
+
+        });
+    }
 
     render() {
         return(
