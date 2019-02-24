@@ -139,49 +139,63 @@ export default class HomePage extends Component {
                             if (Number(userPosition) > firstIndex) {
                                 newIndex = Number(userPosition) - 1;
 
-                                document.getElementById(userPosition).innerHTML= `<div class="box d-flex" ></div>`;
-                                document.getElementById(newIndex.toString()).innerHTML = `<div class="box d-flex" ><div class="user-div" id="user${newIndex}">U</div></div>`;
+                                document.getElementById(newIndex.toString()).innerHTML
+                                    = `<div class="box d-flex" ><div class="user-div" id="user${newIndex}">U</div></div>`;
+
+                                document.getElementById(userPosition).innerHTML
+                                    = `<div class="box d-flex" id="${userPosition}"><div class="user-div2" >U</div></div>`;
+
 
                                 if (playersIndex.includes(newIndex.toString())) {
                                     playersIndex.splice(playersIndex.indexOf(newIndex.toString()), 1)
                                 }
                                 this_.setState({userPosition: newIndex.toString(), playersIndex}, () => {
-                                    this_.resetPlayers()
+                                    this_.resetPlayers(playersIndex)
                                 });
                                 count = count + 1;
                             }
                         }
                         else if (event && event.key === "ArrowRight") {
+                            let str1 = userPosition.toString().charAt(userPosition.length - 1);
+                            let str2 = userPosition.toString().charAt(0);
 
-                            /*let str1 = userPosition.toString().charAt(userPosition.length - 1);
-                            let str2 = userPosition.toString().charAt(userPosition.length - 2);
+                            let lastIndex = str2+boardNumber.toString();
+                            if (Number(userPosition) < lastIndex) {
 
-                            let lastIndex = boardNumber;
-                            /!*if (Number(userPosition) > lastIndex) {*!/*/
-                                newIndex = Number(userPosition) + 1;
+                                if (str1 === "9") {
+                                    newIndex = str2 + "10"
+                                } else {
+                                    newIndex = Number(userPosition) + 1;
+                                }
 
-                                document.getElementById(userPosition).innerHTML= `<div class="box d-flex" ></div>`;
-                                document.getElementById(newIndex.toString()).innerHTML = `<div class="box d-flex" ><div class="user-div" id="user${newIndex}">U</div></div>`;
+
+                                console.log("yes", newIndex);
+
+                                document.getElementById(newIndex.toString()).innerHTML
+                                    = `<div class="box d-flex" ><div class="user-div" id="user${newIndex}">U</div></div>`;
+
+                                document.getElementById(userPosition).innerHTML
+                                    = `<div class="box d-flex" id="${userPosition}"><div class="user-div2" >U</div></div>`;
 
                                 if (playersIndex.includes(newIndex.toString())) {
                                     console.log("yes");
                                     playersIndex.splice(playersIndex.indexOf(newIndex.toString()), 1)
                                 }
                                 this_.setState({userPosition: newIndex.toString(), playersIndex}, () => {
-                                    this_.resetPlayers()
+                                    this_.resetPlayers(playersIndex)
                                 });
                                 count = count + 1;
-                            /*}*/
+                            }
                         }
                     }
 
             });
     }
 
-    resetPlayers = () => {
-        const {  playersIndex} = this.state;
+    resetPlayers = (playersIndex) => {
         for(let ids in playersIndex){
-            document.getElementById(playersIndex[ids]).innerHTML = `<div class="box d-flex"><div class="player-div"></div></div>`
+            document.getElementById(playersIndex[ids]).innerHTML
+                = `<div class="box d-flex"><div class="player-div"></div></div>`
 
         }
     }
